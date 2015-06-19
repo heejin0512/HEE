@@ -3,79 +3,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Gradle + Spring MVC</title>
-
-<spring:url value="/resources/core/css/hello.css" var="coreCss" />
-<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
+<title>TEST</title>
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
+<script type="text/javascript"
+	src="/resources/core/js/jwplayer/jwplayer.js"></script>
+<script type="text/javascript">
+	var userAgent  = window.navigator.userAgent.toLowerCase();
+
+	var browser= {
+			ios : /webkit/.test(userAgent) && /\(iphone|ipod|ipad/.test(userAgent),
+			android : /webkit/.test(userAgent)&&/android/.test(userAgent)
+	}
+
+	var url = "";
+	if(browser.ios){
+		url = "http://211.111.174.25:8866/stream.mp4";  //아이폰
+	}else{
+	    url  ="http://211.111.174.25:8877/stream.flv"   //안드로이드 및 PC
+	}
+	/* 	file : "http://192.168.43.223:5555/stream.flv",  // 폰 테더링 스트리밍  */
+	
+</script>
 </head>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">GRADLE TEST</a>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Stream </a>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="jumbotron">
+		<div class="container">
+	
+			<h1>FLV</h1>
+			<div id="player"></div>
+			<script type="text/javascript">
+			var playerInstance = jwplayer("player").setup({
+				
+				file : url, 
+				width : 640,
+				height : 360,
+				buffer : 100,
+				controls : true,
+				stretching : "exactfit",
+				buffer:100,
+				modes : [ {
+					type : "flash",
+					src : "/resources/core/js/jwplayer/player.swf"
+				}, {
+					type : "html5"
+				}, {
+					type : "download"
+				} ]
+			});
+			</script>
+			<h2>IPOHNE</h2>
+			<video src="http://211.111.174.25:8866/stream.mp4" controls="controls"></video>
 		</div>
 	</div>
-</nav>
-
-<div class="jumbotron">
-	<div class="container">
-		<h1>${title}</h1>
-		<p>
-			<c:if test="${not empty msg}">
-				Hello ${msg}
-			</c:if>
-
-			<c:if test="${empty msg}">
-				Welcome Welcome!
-			</c:if>
-		</p>
-		<p>
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-		</p>
-	</div>
-</div>
-
-<div class="container">
-
-	<div class="row">
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-	</div>
-
-
-	<hr>
-	<footer>
-		<p>&copy; Mkyong.com 2015</p>
-	</footer>
-</div>
-
-<spring:url value="/resources/core/css/hello.js" var="coreJs" />
-<spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
-
-<script src="${coreJs}"></script>
-<script src="${bootstrapJs}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+	
 </body>
 </html>
