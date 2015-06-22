@@ -27,7 +27,4 @@ jettyRunWar{
 	contextPath = "spring4"
 	httpPort = 8080
 }
- compileJava {
-   sourceCompatibility = 1.8
-   options.encoding = 'UTF-8'
-}
+
