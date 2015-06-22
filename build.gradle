@@ -13,15 +13,4 @@ dependencies {
 	compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
 	compile 'javax.servlet:jstl:1.2'
 }
- 
-// Embeded Jetty for testing
-jettyRun{
-	contextPath = "spring4"
-	httpPort = 8080
-}
- 
-jettyRunWar{
-	contextPath = "spring4"
-	httpPort = 8080
-}
 
