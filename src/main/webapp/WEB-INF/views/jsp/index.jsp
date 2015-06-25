@@ -18,11 +18,11 @@
 
 	var url = "";
 	if(browser.ios){
-		url = "http://211.111.174.25:8866/stream.mp4";  //아이폰
+		url = "http://192.168.198.130:9977/stream.mp4";  
 	}else{
-	    url  ="http://211.111.174.25:8877/stream.flv"   //안드로이드 및 PC
+	    url  ="http://192.168.198.130:9999/stream.flv"   
 	}
-	/* 	file : "http://192.168.43.223:5555/stream.flv",  // 폰 테더링 스트리밍  */
+	/* 	file : "http://192.168.43.223:5555/stream.flv",  */
 	
 </script>
 </head>
