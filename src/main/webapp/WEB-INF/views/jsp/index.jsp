@@ -20,7 +20,13 @@
 	if(browser.ios){
 		url = "http://192.168.198.130:9977/stream.mp4";  
 	}else{
-	    url  ="http://192.168.198.130:9999/stream.flv"   
+		//linux
+		
+	    //url  ="http://192.168.198.130:9999/stream.flv";
+	    
+		//window
+		
+		url  ="http://211.111.174.25:5555/stream.flv";  
 	}
 	/* 	file : "http://192.168.43.223:5555/stream.flv",  */
 	
